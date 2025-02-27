@@ -2,12 +2,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-String id = "qwer";
-String pw="1234";
-String name="아무개";
-int age = 12;
-String email = "qwer@test.com";
-String phone = "010-1111-1937";
+String id = request.getParameter("joinId");
+if(MemberDAO.getInstance().hasId(id)) {%>
+	<script>
+		alert('중복된 아이디입니다.');
+		location.href='./05_memberJoin.jsp';
+	</script>
+<%}
+
+String pw = request.getParameter("joinPw");
+String name = request.getParameter("joinName");
+int age = Integer.parseInt(request.getParameter("joinAge"));
+String email = request.getParameter("joinEmail");
+String phone = request.getParameter("joinPhone");
 
 boolean check = MemberDAO.getInstance().insertAMember(id,pw,name,age,email,phone);
 if(check){
