@@ -1,4 +1,4 @@
-package kr.basic.controller;
+package kr.board.controller;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -6,18 +6,19 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import kr.basic.model.MemberDAO;
+import kr.board.model.BoardDAO;
 
 import java.io.IOException;
 
 @SuppressWarnings("serial")
-@WebServlet("/memberList.do")
-public class MemberListController extends HttpServlet {
+@WebServlet("/boardList.do")
+public class BoardListController extends HttpServlet {
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("memberList", MemberDAO.getInstance().getMemberList());
-		RequestDispatcher dis = request.getRequestDispatcher("/member/memberList.jsp");
-		dis.forward(request, response);
+		request.setAttribute("cnt", BoardDAO.getInstance().getCnt());
+		request.setAttribute("printAll", BoardDAO.getInstance().printAllBoard());
+		RequestDispatcher rd = request.getRequestDispatcher("/board/boardList.jsp");
+		rd.forward(request, response);
 	}
 }

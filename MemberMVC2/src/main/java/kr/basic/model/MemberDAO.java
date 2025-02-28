@@ -61,24 +61,6 @@ public class MemberDAO {
 		return list;
 	}
 	
-	public String printMemberList() {
-		StringBuilder sb = new StringBuilder();
-		String data = "<td>%s</td>";
-		for(Member member : getMemberList()) {
-			sb.append("<tr>");
-			sb.append(String.format(data, member.getNum()));
-			sb.append(String.format(data, "<a href=\"/MemberMVC2/memberContent.do?num="+member.getNum()+"\">"+member.getId()+"</a>"));
-			sb.append(String.format(data, member.getPass()));
-			sb.append(String.format(data, member.getName()));
-			sb.append(String.format(data, member.getAge()));
-			sb.append(String.format(data, member.getEmail()));
-			sb.append(String.format(data, member.getPhone()));
-			sb.append(String.format(data, "<button onclick=\"location.href='/MemberMVC2/memberDelete.do?num="+member.getNum()+"'\">삭제</button>"));
-			sb.append("</tr>");
-		}
-		return sb.toString();
-	}
-	
 	public void logout() {
 		log = 0;
 	}
