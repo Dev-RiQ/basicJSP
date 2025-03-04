@@ -10,6 +10,7 @@ import kr.basic.controller.MemberListController;
 import kr.basic.controller.MemberLoginController;
 import kr.basic.controller.MemberLogoutController;
 import kr.basic.controller.MemberUpdateController;
+import kr.basic.controller.ValidateAjaxController;
 
 public class HandlerMapping {
 	private HashMap<String, Controller> mappings;
@@ -22,6 +23,11 @@ public class HandlerMapping {
 		mappings.put("/memberInsert.do", new MemberInsertController());
 		mappings.put("/memberContent.do", new MemberContentController());
 		mappings.put("/memberUpdate.do", new MemberUpdateController());
+		mappings.put("/validateAjax.do", new ValidateAjaxController());
+		
+		mappings.put("/memberAddImg.do", new MemberUpdateController());
+		mappings.put("/memberDeleteImg.do", new MemberUpdateController());
+		mappings.put("/memberUploadImg.do", new MemberUpdateController());
 	}
 	public Controller getController(String key) {
 		return mappings.get(key);
