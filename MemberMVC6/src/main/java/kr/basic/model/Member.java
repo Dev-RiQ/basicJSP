@@ -11,6 +11,14 @@ public class Member {
 	private String oFileName;
 	private String sFileName;
 	
+	public Member(String id, String pass, String name, int age, String email, String phone) {
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.age = age;
+		this.email = email;
+		this.phone = phone;
+	}
 	public Member(int num, String id, String pass, String name, int age, String email, String phone) {
 		this.num = num;
 		this.id = id;
